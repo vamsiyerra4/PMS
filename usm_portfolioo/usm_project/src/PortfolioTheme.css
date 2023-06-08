@@ -1,0 +1,245 @@
+/* .asbutton1 {
+    background-color: white;
+    color: red;
+    text-align: center;
+    width: 15%;
+    height: 4%;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 150%;
+    margin-top: 2%;
+} */
+
+.ht1 {
+    margin-top: 2%;
+    text-shadow: 2px 2px red;
+    
+
+}
+
+.sec2 {
+    margin-top: 2%;
+    margin-left: 9%;
+    width:80%;
+    border: 1px solid white;
+}
+
+.secn{
+
+    margin-left: 1%;
+    /* color: white; */
+    color:chartreuse;
+    font-size: 18px;
+}
+
+.secname1 {
+    margin-left: 0.5%;
+    color: black;
+    font-size: 18px;
+    text-align: start;
+    height: 20%;
+    /* border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px; */
+}
+
+.savebutton12 {
+    margin-top: 2%;
+}
+
+.savebutton12 {
+    color: black;
+    font-size: 18px;
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+.savebutton12:hover {
+    background-color: aqua;
+    color: black;
+}
+
+.ht2 {
+    margin-top: 5%;
+    text-shadow: 2px 2px red;
+    
+}
+
+.sec22 {
+    margin-top: 2%;
+}
+
+.secn2{
+
+    margin-left: 8%;
+    /* color: white; */
+    color:red;
+    font-size: 18px;
+}
+
+.secname12 {
+    margin-left: 0.5%;
+    color: black;
+    font-size: 18px;
+    text-align: start;
+    /* border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px; */
+}
+
+.nextbuttonn {
+    margin-top: -2%;
+    margin-left: 9%;
+}
+
+.nextbuttonm {
+    color: black;
+    font-size: 18px;
+    height: 20%;
+    width: 4%;
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+.nextbuttonm:hover {
+    background-color: aqua;
+    color: black;
+}
+
+
+
+
+
+
+
+
+.secpage-51{
+    margin-left: -74.5%;
+    margin-top: 1%;
+    font-size: 18px;
+    color: chartreuse;
+}
+.secpage-52{
+    margin-top: -1.9%;
+    margin-left: -10%;
+    font-size: 18px;
+    color: chartreuse;
+}
+.secpage-53{
+    margin-top: -1.9%;
+    margin-left: 49%;
+    font-size: 18px;
+    color: chartreuse;
+}
+.secpage-54{
+    margin-top: 1%;
+    font-size: 19px;
+    margin-left: -70%;
+    color: chartreuse;
+}
+.secpage-55{
+    margin-top: -1.9%;
+    font-size: 19px;
+    margin-left: -3%;
+    color: chartreuse;
+}
+.secpage-56{
+    margin-top: -1.9%;
+    margin-left: 50%;
+    font-size: 18px;
+}
+.secpages5{
+    margin-left: 10%;
+    /* margin-top: 5%; */
+}
+.secpage-sec5{
+    margin-top: 1%;
+    margin-left: 14%;
+    color: chartreuse;
+}
+.secpage-equity5{
+    margin-left: 30%;
+    color: chartreuse;
+}
+.secpage-equity-input5{
+    width: 15%;
+    color: black;
+}
+.secpage-exchange5{
+    margin-left: -5%;
+    color: chartreuse;
+}
+.secpage-exchange-input5{
+    width: 31%;
+    color: black;
+    
+}
+.secpage-sec-down5{
+    width: 9%;
+    color: black;
+    
+}
+.sel51 {
+
+    color: black;
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+
+}
+
+.savebutton5 {
+    margin-top: 2%;
+}
+
+.savebutton51 {
+    color: black;
+    font-size: 18px;
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+}
+
+.savebutton51:hover {
+    background-color: aqua;
+    color: black;
+}
+
+.addsehead{
+    margin-top: 5%;
+        margin-bottom: 30px;
+        text-shadow: 2px 2px red;
+    
+   
+}
+
+
+
+.asbutton5 {
+    margin-top: -8%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    width: 15%;
+    height: 4%;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 150%;
+    /* margin-top: 2%; */
+}
+
+.drop5{
+    color: black;
+}
+
+.addassethead{
+    margin-top: 8%;
+}

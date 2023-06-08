@@ -1,0 +1,90 @@
+.background4 {
+    position: absolute;
+    width: 97%;
+    height: 75%;
+    left: 2%;
+    padding-top: 1px;
+
+    background: #D9D9D9;
+}
+.background5 {
+    position: absolute;
+    width: 95%;
+    height: 10%;
+    left: 2.7%;
+    top: 4%;
+
+    background: #5C5555;
+    border-radius: 18px;
+}
+.background6 {
+    
+    width: 100%;
+    height: 75%;
+    left: 2.7%;
+    top: 22%;
+    border-radius: 18px;
+    background: white;
+    padding-top: 10%;
+}
+.Add{
+    margin-left: 2%;
+}
+.investment1{
+    margin-left: 60%;
+    margin-top: -2.8%;
+}
+.tab1{
+    margin-top: 2%;
+}
+.sb{
+    margin-left: 2%;
+}
+.tot{
+    margin-left: 70%;
+}
+/* .bbt{
+    width: 10%;
+    height: 10%;
+    border-top-left-radius: 20%;
+    border-bottom-left-radius: 20%;
+    border-top-right-radius: 20%;
+    border-bottom-right-radius: 20%;
+} */
+.backbt{
+    
+        width: 120%;
+        height: 50%;
+        margin-left: -10%;
+    
+}
+.bbt{
+    width: 5%;
+    height: 50%;
+    margin-left: 1.5%;
+    border-top-left-radius: 20%;
+    border-bottom-left-radius: 20%;
+    border-top-right-radius: 20%;
+    border-bottom-right-radius: 20%;
+    margin-top: 2%
+}
+.mbtns{
+    margin-left: 70%;
+    margin-top: -4%;
+}
+.sbtn{
+    margin-left: 8%;
+    width: 20%;
+    height: 30%;
+}
+.cbtn{
+    width: 20%;
+    height: 30%;
+}
+.quantity{
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+
