@@ -11,9 +11,9 @@ function Addassets() {
     const[assetId,setAssetId]=useState('');
     const[assetClass,setAssetClass]=useState('');
     const[subAssetClass,setSubAssetClasss]=useState('');
-    // const[allocation,setAllocation]=useState('');
-    // const[themeName,setThemeName]=useState([]);
-    // const[trlValue,setTrlValue]=useState('');
+    
+    
+    
     const[investmentHorizon,setInvestmentHorizon]=useState('');
     const[risk,setRisk]=useState('');
     const[liquidity,setLiquidity]=useState('');
@@ -37,11 +37,11 @@ function Addassets() {
 
     }
 
-    // function getTheme(){
-    //     PortfolioHeaderService.fetchThemeAsset().then(
-    //         (response)=>{setThemeName(response.data)}
-    //     )
-    // }
+    
+    
+    
+    
+    
 
     const saveAsset=(event)=>{
         event.preventDefault()
@@ -49,15 +49,22 @@ function Addassets() {
         console.log(asset);
           addAsset(asset).then(
            (response)=> {console.log(response.data);
-            handleClick()
+            
             
              }).catch(
-             error =>{console.log(error);})
-    }
+             error =>{console.log(error);});
+             if(assetId !== '' && assetClass !== '' && subAssetClass !== '' && risk !== '' && investmentHorizon !== '' && liquidity !=='' && returns !== ''){
+                handleClick()
+            }
+            if(assetId == '' && assetClass == '' && subAssetClass == '' && risk == '' && investmentHorizon == '' && liquidity =='' && returns == ''){
+                window.alert("Please fill all the fields")
+            }
+
+}
         
-        // useEffect(()=>{
-        //     getTheme()
-        // },[])
+        
+        
+        
         
         
     

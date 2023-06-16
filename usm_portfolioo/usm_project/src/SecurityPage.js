@@ -442,6 +442,7 @@ const SecurityPage = () => {
                                 <th>Price</th>
                                 <th>Allocated Value</th>
                                 <th>Transaction Date</th>
+                                {/* <th>Actions</th> */}
                                 {/* <th>Total Transactions</th> */}
                                 {/* <th>Available Balance</th>
                                 <th>Invested Amount</th> */}
@@ -453,14 +454,13 @@ const SecurityPage = () => {
 
 
                                     <td>{portfolioData.securityName}</td>
-                                    
-
                                     <td>{portfolioData.equityCategory}</td>
                                     <td>{portfolioData.exchangeName}</td>
                                     <td>{portfolioData.units}</td>
                                     <td>{portfolioData.price}</td>
                                     <td>{Math.round(portfolioData.allocatedValue)}</td>
                                     <td>{portfolioData.transactionDate}</td>
+                                    {/* <td>{<button>sell</button>}</td> */}
                                     {/* <td>{Math.round(portfolioData.totalTransaction)}</td> */}
                                     {/* <td>{portfolioHeaders.investmentValue-availableBalance}</td>
                                                 <td>{portfolioData.investmentValue}</td> */}

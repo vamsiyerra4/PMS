@@ -53,7 +53,8 @@ public class PortfolioCompositionController {
 
 	@PostMapping("/addCompo/{portfolioName}/{assetId}/{symbol}")
 	public ResponseEntity<String> addCompo(@RequestBody PortfolioComposition portfolioComposition,
-			@PathVariable("portfolioName") String portfolioName,@PathVariable ("assetId") String assetId, @PathVariable("symbol") String symbol) {
+			@PathVariable("portfolioName") String portfolioName, @PathVariable("assetId") String assetId,
+			@PathVariable("symbol") String symbol) {
 
 		Optional<PortfolioHeader> optional = repo.findById(portfolioName);
 		if (!optional.isPresent())
@@ -61,6 +62,11 @@ public class PortfolioCompositionController {
 
 		PortfolioHeader portfolioHeader = optional.get();
 		portfolioComposition.setPortfolioHeader(portfolioHeader);
+		
+//		if(portfolioHeader.getStatus().equals("Closed"))
+//		{
+//			return ResponseEntity.badRequest().body("Can not add securities");
+//		}
 
 		Optional<Asset> optionalA = assetRepo.findById(assetId);
 		if (!optionalA.isPresent())
@@ -84,16 +90,14 @@ public class PortfolioCompositionController {
 
 		portfolioComposition.setAllocatedValue(Math.round(allocatedValue));
 		portfolioComposition.setTotalTransaction(Math.round(allocatedValue));
-		
+
 		double investmentValue = portfolioHeader.getInvestmentValue();
 		portfolioComposition.setInvestmentValue(investmentValue);
-		
-		
-		//double availableBalance=portfolioComposition.getInvestmentValue() - portfolioComposition.getTotalTransaction();
-		//portfolioComposition.setAvailableBalance(availableBalance);
-		
-        		
-		
+
+		// double availableBalance=portfolioComposition.getInvestmentValue() -
+		// portfolioComposition.getTotalTransaction();
+		// portfolioComposition.setAvailableBalance(availableBalance);
+
 		/*
 		 * int Id = portfolioComposition.getCompositionId() - 1;
 		 * Optional<PortfolioComposition> pc = portfolioCompositionRepo.findById(Id);
@@ -103,14 +107,14 @@ public class PortfolioCompositionController {
 		 * }
 		 */
 		portfolioComposition.setTransactionDate(LocalDate.now());
-
+		portfolioComposition.setDeleteStatus(false);
 		/*
 		 * List<PortfolioComposition> list=portfolioCompositionRepo.findAll(); Asset
 		 * asset=new Asset(); //String assetclass=asset.getAssetClass(); //double
 		 * allocation=asset.getAllocation(); double limit=0; double
 		 * availableBalance=portfolioHeader.getInvestmentValue();
 		 * 
-		 portfolioComposition.setTransactionDate(LocalDate.now());
+		 * portfolioComposition.setTransactionDate(LocalDate.now());
 		 * 
 		 * if(assetclass.equals("EQUITIES")) { limit=(investmentValue/100)*allocation;
 		 * allocatedValue=Math.max(0, limit); } if(assetclass.equals("CASH")) {
@@ -141,15 +145,16 @@ public class PortfolioCompositionController {
 		 * double returns=-((returnPer/100)*totalTransaction);
 		 * portfolioComposition.setReturns(returns);
 		 */
-		if(allocatedValue>investmentValue) {
-			return new ResponseEntity<>("you have exceeded your invested Amount,decrease the units",HttpStatus.BAD_REQUEST);
-			
-		}
-		else {
-		service.addCompo(portfolioComposition);
+		portfolioHeader.setStatus("Active");
+		if (allocatedValue > investmentValue) {
+			return new ResponseEntity<>("you have exceeded your invested Amount,decrease the units",
+					HttpStatus.BAD_REQUEST);
 
-		return ResponseEntity.status(HttpStatus.OK).body("Security added Successfully!");
-	}
+		} else {
+			service.addCompo(portfolioComposition);
+
+			return ResponseEntity.status(HttpStatus.OK).body("Security added Successfully!");
+		}
 	}
 
 	@GetMapping("/fetchCompo")
@@ -186,12 +191,58 @@ public class PortfolioCompositionController {
 			return new ResponseEntity<>(object, HttpStatus.OK);
 		}
 	}
+
+	@DeleteMapping("/delete/{portfolioName}")
+	public ResponseEntity<String> delete(@PathVariable String portfolioName) {
+		service.delete(portfolioName);
+		return new ResponseEntity<>("Data has been deleted successfully", HttpStatus.OK);
+	}
+
+	// soft delete for securitites
+	@DeleteMapping("/{portfolioName}/securities")
+
+	public ResponseEntity<String> softDeleteSecuritiesFromPortfolio(@PathVariable("portfolioName") String portfolioName,
+			@RequestBody List<String> securityIds) {
+
+		Optional<PortfolioHeader> optionalPortfolioHeader = repo.findById(portfolioName);
+
+		if (optionalPortfolioHeader.isPresent()) {
+
+			PortfolioHeader portfolioHeader = optionalPortfolioHeader.get();
+
+			List<PortfolioComposition> portfolioCompositionList = portfolioCompositionRepo
+					.findByPortfolioName(portfolioName);
+
+			List<PortfolioComposition> compositionsToDelete = new ArrayList<>();
+
+			for (String securityId : securityIds) {
+
+				Optional<PortfolioComposition> optionalComposition = portfolioCompositionList.stream()
+
+						.filter(composition -> composition.getMaster().getSymbol().equals(securityId))
+
+						.findFirst();
+
+				optionalComposition.ifPresent(compositionsToDelete::add);
+
+			}
+
+			if (!compositionsToDelete.isEmpty()) {
+
+				compositionsToDelete.forEach(composition -> composition.setDeleteStatus(true));
+
+				portfolioCompositionRepo.saveAll(compositionsToDelete);
+
+			}
+
+			return ResponseEntity.ok("Securities deleted successfully");
+
+		}
+
+		return ResponseEntity.notFound().build();
+
+	}
 	
-	 @DeleteMapping("/delete/{portfolioName}")
-	  public ResponseEntity<String>delete(@PathVariable String portfolioName){
-		  service.delete(portfolioName);
-		  return new ResponseEntity<>("Data has been deleted successfully",HttpStatus.OK);
-	  }
 	
 
 }

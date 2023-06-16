@@ -1,6 +1,5 @@
 import React from 'react'
 import axios from 'axios'
-import PortfolioHeader from './PortfolioHeader';
 const FETCH_URL="http://localhost:1244/themeAsset/fetchThemeAsset"
 const BASE_URL="http://localhost:1244/themeAsset/addThemeAsset"
 const GET_URL="http://localhost:1244/asset/fetchAsset"

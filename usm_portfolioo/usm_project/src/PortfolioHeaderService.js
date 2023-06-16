@@ -1,6 +1,5 @@
 import React from 'react'
 import axios from 'axios'
-import PortfolioHeader from './PortfolioHeader';
 const FETCH_URL="http://localhost:1244/portfolio/fetchPortfolio"
 const BASE_URL="http://localhost:1244/portfolio/addPortfolio"
 const GET_URL="http://localhost:1244/theme/fetchTheme"

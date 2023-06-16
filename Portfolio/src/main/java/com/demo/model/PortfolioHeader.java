@@ -17,6 +17,7 @@ public class PortfolioHeader{
 	private String benchMark;
 	private String investmentTheme;
 	private String fundManagerName;
+	private String status;
 	@Enumerated(EnumType.STRING)
 	private RebalancingFrequency rebalancingFrequency;
 	private double investmentValue;
@@ -72,4 +73,11 @@ public double getInvestmentValue() {
 public void setInvestmentValue(double investmentValue) {
 	this.investmentValue = investmentValue;
 }
+public String getStatus() {
+	return status;
+}
+public void setStatus(String status) {
+	this.status = status;
+}
+
 }

@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import './PortfolioHeader.css';
 import home from './Images/home.png';
-import back from './Images/back.png';
+// import back from './Images/back.png';
 import { useNavigate } from "react-router-dom";
 import {useState,useEffect} from 'react';
 // import PortfolioHeaderService from './PortfolioHeaderService'

@@ -32,6 +32,7 @@ public class MasterService {
 
 	 	
 	String line="";
+//	@PostConstruct
 	public void saveMasterData() throws IOException {
 		
 			try(BufferedReader br=new BufferedReader(new FileReader("src/main/resources/MASTER.csv"))){
@@ -129,7 +130,7 @@ public class MasterService {
 	public void deleteMaster(String symbol) {
 	    repo.deleteById(symbol);
 	}
-   
+//   @PostConstruct
 	public void saveData() throws IOException {
 			try(BufferedReader br=new BufferedReader(new FileReader("src/main/resources/STOCKDATA.csv"))){
 		    while((line=br.readLine())!=null) {
